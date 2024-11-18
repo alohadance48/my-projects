@@ -1,11 +1,13 @@
 # info.py
+
 class Info:
     def deastole(self, status: bool) -> bool:
         print(f"Info: Blood status is now {'Deastole' if status else 'Sistole'}")
         return status
 
     def user_info(self, is_old: int):
-        pass
+        print(f'Info:you old:{is_old}')
+        return is_old
 
     def defects(self, not_full_heart: bool, deabet: bool, olf: bool):
         pass

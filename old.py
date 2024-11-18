@@ -5,9 +5,9 @@ class User:
         self.age = age
         self.chance = False
 
-    def chance_main(self): # метод для расчета шанса недуга
+    def chance_main(self):  # метод для расчета шанса недуга
         if self.age >= 55:
-            chance_value = random.randint(1, 2) #расчет шанса
+            chance_value = random.randint(1, 2)  # расчет шанса
             if chance_value == 1:
                 self.chance = True
             else:
@@ -15,12 +15,3 @@ class User:
         else:
             self.chance = False
         return self.chance
-    '''Если возраст который задает user 55 лет или больше - недуг с шансом 50 процентов .
-      Если есть недуг - переменная (chance) содержит True , если нету недуга - False.
-      Все эти данный для передачи в основной модуль .'''
-
-
-test = User(55)
-print(test.chance_main())
-
-
