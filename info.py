@@ -13,6 +13,11 @@ class Info:
         pass
 
     def dead(self, start: bool):
+        if start == True :
+            print('Вы погибли')
+        else :
+            print('Вы выжили')
+
         pass
 
     def pulse(self, status: int):

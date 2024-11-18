@@ -1,9 +1,10 @@
 import time
 import random
 import threading
+from info import Info
 
 def timer_callback():
-    print('Таймер завершен! Вы не успели сбросить нагрузку.')
+    pass
 
 def heart_failure(fatigue: int, old: int, start: bool):
     if fatigue >= 70 and old >= 55 and start:
@@ -18,13 +19,14 @@ def heart_failure(fatigue: int, old: int, start: bool):
             if test.lower() == 'stop':
                 timer.cancel()
                 print('Вы сбросили нагрузку!.')
-                print('Вы выжили ')
+                info = Info()
+                info.dead(False)
                 return
 
         chance = random.randint(1, 10)
         if chance <= 7:
-            print('Вы погибли.')
-            dead = True
+            info = Info()
+            info.dead(True)
         else:
-            print('Вы выжили!')
-            dead = False
+            info = Info()
+            info.dead(False)
