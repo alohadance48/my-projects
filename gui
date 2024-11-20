@@ -6,11 +6,11 @@ class Root(customtkinter.CTk):
     def __init__(self):
         super().__init__()
         self.geometry('800x600')
-        self.title('govno')
+        self.title('heart')
 
         self.button = customtkinter.CTkButton(
             self,
-            text='gay',
+            text='End',
             command=self.test
         )
         self.button.place(x=600, y=1)
@@ -44,7 +44,7 @@ class Root(customtkinter.CTk):
 
         self.switch_1 = customtkinter.CTkSwitch(
             self,
-            text='switch1',
+            text='deabet',
             command=self.switch1,
             variable=self.switch_var1
         )
@@ -52,7 +52,7 @@ class Root(customtkinter.CTk):
 
         self.switch_2 = customtkinter.CTkSwitch(
             self,
-            text='switch2',
+            text='heart failure',
             command=self.switch2,
             variable=self.switch_var2
         )
@@ -60,7 +60,7 @@ class Root(customtkinter.CTk):
 
         self.switch_3 = customtkinter.CTkSwitch(
             self,
-            text='switch3',
+            text='old heart',
             command=self.switch3,
             variable=self.switch_var3
         )
@@ -68,6 +68,26 @@ class Root(customtkinter.CTk):
 
         self.status = True
         self.switch_value = None
+
+        self.gender = 'Male'
+        self.gender_switch = customtkinter.CTkSwitch(
+            self,
+            text=f'Gender is {self.gender}',
+            command=self.gender_switch
+        )
+
+        self.gender_switch.place(x=1, y=450)
+
+
+    def gender_switch(self):
+        if self.gender == "Male":
+            self.gender = "Female"
+            self.gender_switch.configure(text=f'Gender is {self.gender}')
+        else:
+            self.gender = "Male"
+            self.gender_switch.configure(text=f'Gender is {self.gender}')
+
+
 
     def switch1(self):
         pass
