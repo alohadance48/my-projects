@@ -1,39 +1,33 @@
-# destole.py
 import time
 from info import Info
 
-class Destole_main:
-    def __init__(self, start: bool):
-        self.index = 0
-        self.start_main = start
-        self.blood = False
+class DestoleMain:
+    def __init__(self, deastole_start: bool):
+        self.deastole_start = deastole_start
+        self.blood_ejection_status = False
         self.info_instance = Info()
 
     def deastole(self):
-        self.blood = True
-        test = Test(self.blood)
-        self.info_instance.deastole(self.blood)
+        self.blood_ejection_status = True
+        self.info_instance.deastole(self.blood_ejection_status)
 
     def sistole(self):
-        self.blood = False
-        test = Test(self.blood)
-        self.info_instance.deastole(self.blood)
+        self.blood_ejection_status = False
+        self.info_instance.deastole(self.blood_ejection_status)
 
     def get_blood_status(self):
-        return self.blood
+        return self.blood_ejection_status
 
-class Deastole(Destole_main):
+class Deastole(DestoleMain):
     def main_start(self):
-        while self.start_main:
-            self.index += 1
-            if self.index == 1:
+        i = 0
+        while self.deastole_start:
+            i  += 1
+            if i  == 1:
                 time.sleep(2)
                 self.deastole()
             else:
                 time.sleep(2)
                 self.sistole()
-                self.index = 0
+                i = 0
 
-class Test:
-    def __init__(self, status: bool):
-        self.status = status
