@@ -1,12 +1,10 @@
-# dead.py
 import time
 import threading
 from info import Info
 
 def timer_callback():
     print('Вы умерли из-за перегрузки на сердце.')
-    info = Info()
-    info.dead(True)
+    Info().dead(True)
 
 def heart_failure(fatigue: int, old: int, start: bool):
     if fatigue >= 70 and old >= 55 and start:
@@ -15,13 +13,10 @@ def heart_failure(fatigue: int, old: int, start: bool):
         timer = threading.Timer(10.0, timer_callback)
         timer.start()
 
-        for i in range(10):
+        for _ in range(10):
             time.sleep(1)
-            test = input('Для сброса нагрузки напиши "stop": ')
-            if test.lower() == 'stop':
+            if input('Для сброса нагрузки напиши "stop": ').lower() == 'stop':
                 timer.cancel()
                 print('Вы сбросили нагрузку!')
-                info = Info()
-                info.dead(False)
+                Info().dead(False)
                 return
-
