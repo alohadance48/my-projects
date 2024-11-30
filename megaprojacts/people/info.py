@@ -7,3 +7,4 @@ class Info:
 
     def dead(self, start: bool):
         return 'You died' if start else 'You survived'
+    #лол
