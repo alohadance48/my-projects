@@ -10,4 +10,4 @@ def run_process(start: bool):
 
 if __name__ == '__main__':
     def start_main(star:bool):
-        run_process(star\
+        run_process(star)
