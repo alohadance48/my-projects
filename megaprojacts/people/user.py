@@ -15,3 +15,4 @@ class User:
         else:
             self.chance_of_defect = False
         return self.chance_of_defect
+    #test
