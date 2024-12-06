@@ -154,7 +154,7 @@ def calculate_distance(message):
          s = v * t  # Расчет пути
          bot.send_message(message.chat.id, f"Путь s = {s} метров")
          go_to_main_menu(message)  # Возвращаем в главное меню после расчёта
-     except ValueError:
+    except ValueError:
          bot.send_message(message.chat.id,"Неверный формат данных , попробуйте снова.")
 
 # Запрос данных для расчета ускорения
@@ -162,7 +162,7 @@ def calculate_distance(message):
 def get_acceleration_data( message ):
      try:
          delta_v=float( message.text )   # изменение скорости
-         user_data[message .chat .id]['delta_v']   delta_v
+         user_data[message .chat .id]['delta_v']
          bot .send_message( message .chat .id , 'Введите время ( в секундах ):')
          bot.register_next_step_handler( message , calculate_acceleration )
      except ValueError:
@@ -184,7 +184,7 @@ def calculate_acceleration( message ):
 def get_impulse_data( message ):
      try:
          m=float( message.text )   # масса
-         user_data[message .chat .id]['m']   m
+         user_data[message .chat .id]['m']
          bot .send_message( message .chat .id , 'Введите скорость ( в м/с ):')
          bot.register_next_step_handler( message , calculate_impulse )
      except ValueError:
