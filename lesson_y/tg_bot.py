@@ -2,7 +2,7 @@ import telebot
 from telebot import types
 import time
 
-TOKEN = '7576640329:AAE5aLRnF_nPcT-qzsGpZ9b2aE7OIAdEO8Y'  # Замените на ваш токен
+TOKEN = ''  # Замените на ваш токен
 bot = telebot.TeleBot(TOKEN)
 
 # Создание объекта для хранения данных (для обработки поэтапных запросов)
