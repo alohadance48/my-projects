@@ -217,4 +217,4 @@ if __name__ == '__main__':
            bot.infinity_polling(none_stop=True)
        except Exception as e:
            print(f"Ошибка: {e}")
-           time.sleep(5)  # Задержка перед повторной попыткой
+           time.sleep(5)  # Задержка перед повторной попыткой1
