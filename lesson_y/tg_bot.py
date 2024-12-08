@@ -123,7 +123,7 @@ def thermodynamics(message):
         bot.send_message(message.chat.id, "Для расчета силы тока в цепи нужны следующие данные:\n"
                                           "1. Напряжение (в Вольтах, В)\n"
                                           "2. Сопротивление в Омах, Ω)"
-                                          "Введите все переменные подряд в формате без запятых. Пример: 2 4")
+                                          "Введите все переменные подряд в формате без запятых. Пример: 2 4 6")
         user_data[message.chat.id] = {"task": "сила тока в цепи"}
 
 
@@ -138,9 +138,11 @@ def pressure(message):
         r = 8.314
         answer = (n * r * t) / v
         bot.send_message(message.chat.id, f'Ответом будет {answer}')
+        go_to_main_menu(message)
 
     except ValueError:
         bot.send_message(message.chat.id, "Неверный формат данных, попробуйте снова.")
+        go_to_main_menu(message)
 
 @bot.message_handler(func=lambda message: user_data.get(message.chat.id, {}).get("task") == "средняя скорость молекул")
 def molecule_speed(message):
@@ -152,9 +154,10 @@ def molecule_speed(message):
         k = 1.38e-23
         answer = math.sqrt((3 * k * t) / m)
         bot.send_message(message.chat.id, f'Ответом будет {answer}')
+        go_to_main_menu(message)
     except ValueError:
         bot.send_message(message.chat.id, "Неверный формат данных, попробуйте снова.")
-
+        go_to_main_menu(message)
 @bot.message_handler(func=lambda message: user_data.get(message.chat.id, {}).get("task") == "работа газа")
 def gas_operation(message):
     message_str = str(message.text)
@@ -164,9 +167,10 @@ def gas_operation(message):
         delta_v = float(message_list[1])
         answer = p * delta_v
         bot.send_message(message.chat.id, f'Ответом будет {answer}')
+        go_to_main_menu(message)
     except ValueError:
         bot.send_message(message.chat.id, "Неверный формат данных, попробуйте снова.")
-
+        go_to_main_menu(message)
 @bot.message_handler(func=lambda message: user_data.get(message.chat.id, {}).get("task") == "сила тока в цепи")
 def current_in_the_circuit(message):
     message_str = str(message.text)
@@ -176,8 +180,10 @@ def current_in_the_circuit(message):
         r = float(message_list[1])
         answer = u / r
         bot.send_message(message.chat.id, f'Ответом будет {answer}')
+        go_to_main_menu(message)
     except ValueError:
         bot.send_message(message.chat.id, "Неверный формат данных, попробуйте снова.")
+        go_to_main_menu(message)
 
 
 
