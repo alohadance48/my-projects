@@ -1,5 +1,5 @@
-def main():
-    pass
-    
-if __name__ =='__main__':
-    main()
+from gui import Root
+
+if __name__ == "__main__":
+    app = Root()
+    app.mainloop()
