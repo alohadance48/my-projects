@@ -8,19 +8,19 @@ def main():
     class CongratulationStart:
         def __init__(self):
             self.word = 'Спасибо тебе, брат! С Новым Годом!'
-            self.brother = 'брат'
+            self.brother = 'лучший брат на свете!'
             self.index = 5
             self.spaces = '     '
 
     class CongratulationMain(CongratulationStart):
         def print_heart(self):
             heart_shape = [
-                "   брат   брат   ",
-                " брат брат брат брат ",
-                "брат брат брат брат брат",
-                " брат брат брат брат ",
-                "  брат   брат   ",
-                "   брат       "
+                "   ♥♥♥♥♥♥♥♥♥♥   ",
+                " ♥♥♥♥♥♥♥♥♥♥♥♥♥♥ ",
+                " ♥♥♥♥  лучший  ♥♥ ",
+                " ♥♥  брат на свете ♥♥ ",
+                "   ♥♥  лучший брат ♥♥   ",
+                "     ♥♥♥♥♥♥♥♥     "
             ]
 
             for line in heart_shape:
@@ -45,11 +45,13 @@ def main():
                 print("Теперь слово 'брат' в форме сердца:")
                 self.print_heart()
                 time.sleep(5)
+
                 for _ in range(100):
                     time.sleep(0.2)
                     print('Ты самый лучший брат на свете!')
 
                 print('Еще раз с Новым Годом! Спасибо за наставление на правильный путь!')
+
                 print('public class NewYearGreeting {'
                       '    public static void main(String[] args) {'
                       '        System.out.println("С Новым Годом!");'
