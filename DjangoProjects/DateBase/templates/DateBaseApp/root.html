@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AlohadancesCloud</title>
+    <link rel="stylesheet" href="{% static 'css/root.css' %}"> <!-- Подключение нового CSS файла -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>AlohadancesCloud</h1>
+            <nav>
+                <ul>
+                    <li><a href="#" id="usersTab">Пользователи</a></li>
+                    <li><a href="#" id="profileTab">Профиль</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <div class="sidebar">
+            <h2>Панель управления</h2>
+            <ul>
+                <li><a href="#"><i class="fas fa-user"></i> Пользователи</a></li>
+                <li><a href="#"><i class="fas fa-cog"></i> Настройки</a></li>
+            </ul>
+        </div>
+
+        <main>
+            <div id="usersSection">
+                <h2>Пользователи</h2>
+                <button id="addUserButton" class="button" onclick="window.location.href='/path/to/your/add/user/form';">Добавить пользователя</button>
+                <div class="user-list">
+                    {% if users %}
+                        {% for user in users %}
+                            <div class="user-item">
+                                <p class="user-name">{{ user.name }}</p>
+                                <div class="user-info">
+                                    <p>Email: {{ user.email }}</p>
+                                    <p>Статус: {{ user.status }}</p>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    {% else %}
+                        <p>Нет пользователей.</p>
+                    {% endif %}
+                </div>
+            </div>
+
+            <div id="profileSection" style="display: none;">
+                <h2>Профиль пользователя</h2>
+                <div cяlass="profile-info">
+                    <label>Имя пользователя:</label>
+                    <p>{{ username }}</p>
+                </div>
+                <div class="profile-info">
+                    <label>Email:</label>
+                    <p>{{ email }}</p>
+                </div>
+                <div class="profile-info">
+                    <label>Статус:</label>
+                    <p class="status">{{ status }}</p>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script type="module" src="{% static 'js/index.js' %}"></script>
+</body>
+</html>

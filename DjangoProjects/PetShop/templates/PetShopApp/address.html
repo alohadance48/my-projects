@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'css/address.css' %}">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Доставка</title>
+</head>
+<body>
+    <form method="post">
+      {% csrf_token %}
+      {{ my_form.as_p }}
+      <button type="submit">Заказать</button>
+    </form>
+</body>
+</html>

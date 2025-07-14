@@ -1,0 +1,20 @@
+stages:
+  - docker
+
+docker-job:
+  stage: docker
+  image: 
+    name: gcr.io/kaniko-project/executor:v1.23.2-debug
+    entrypoint: [""]
+  script: 
+    - pwd
+    - VERSION=$(grep 'VERSION =' CampSite/settings.py | cut -d'=' -f2 | tr -d ' ')
+    - BUILD_NAME=${CI_PROJECT_TITLE}
+    - echo ${REGISTRY_ADDR}/${CI_PROJECT_PATH}/$BUILD_NAME:$VERSION
+    - echo ${AUTH_TOKEN} | base64 -d > /kaniko/.docker/config.json
+    - |
+      /kaniko/executor \
+        --context "$(pwd)" \
+        --dockerfile "$(pwd)/Dockerfile" \
+        --destination "${REGISTRY_ADDR}/${CI_PROJECT_PATH}:$VERSION"
+

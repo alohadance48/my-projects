@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Мой первый шаблон</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh; /* Высота экрана */
+            overflow: hidden; /* Запретить прокрутку */
+            background-image: url('../static/png/6070.jpg'); /* Указываем путь к локальному файлу */
+            background-size: cover; /* Заполнить весь экран */
+            background-repeat: no-repeat; /* Не повторять изображение */
+            background-position: center; /* Центрировать изображение */
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+            font-family: Arial, sans-serif;
+            margin-top: 20px;
+        }
+        p {
+            text-align: center;
+            color: #a8a0a0;
+            font-family: Arial, sans-serif;
+        }
+        ol {
+            text-align: center; /* Центрируем текст списка */
+            color: #a8a0a0;
+            font-family: Arial,sans-serif;
+            padding-left: 0; /* Убираем отступ слева для списка */
+        }
+        li {
+            color: #a8a0a0;
+            font-family: Arial,sans-serif;
+        }
+        h3 {
+            text-align: center;
+            color: #a8a0a0;
+            font-family: Arial, sans-serif;
+        }
+        h2 {
+            text-align: center;
+            color: #a8a0a0;
+            font-family: Arial, sans-serif;
+        }
+        .footer-link {
+            position: absolute;
+            bottom: 20px;
+            width: 100%;
+            text-align: center;
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+        }
+        .footer-link a {
+            color: #a8a0a0;
+            text-decoration: none;
+        }
+        .footer-link a:hover {
+            color: #333;
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <h1>Этот тестовый сайт сделай на Django.</h1>
+    <p>Лучшие среды программирования и инструменты для Python.</p>
+    <h3 style="text-align:center;">Среды программирования</h3> <!-- Переместили заголовок h3 вне списка -->
+    <ol type="1">
+        <li>1.Pycharm</li>
+        <li>2.VScode</li>
+        <li>3.VIM</li>
+    </ol>
+    <h2>Инструменты </h2>
+        <h3 style="text-align:center;">Плагины для VScode</h3> <!-- Переместили заголовок h3 вне списка -->
+    <ol type="1">
+        <li>1.Pylance</li>
+        <li>2.Visual Studio IntelliCode</li>
+        <li>3.Code Runner</li>
+    </ol>
+    <div class="footer-link">
+        <a href="http://127.0.0.1:8000/about/" target="_blank">Официальный сайт Django</a>
+    </div>
+</body>
+</html>

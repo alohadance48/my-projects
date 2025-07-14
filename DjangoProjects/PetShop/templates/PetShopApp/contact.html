@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Контакты</title>
+    <link rel="stylesheet" href="{% static 'css/contact.css' %}">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="{%url 'index'%}">Главная</a></li>
+                <li><a href="{% url 'about' %}">О нас </a></li>
+                <li><a href="{%url 'contact'%}">Контакты</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="products">
+            <h2>Наши контакты</h2>
+            <div class="product-grid">
+                <div class="product-card">
+                    <h3>github</h3>
+                    <p>alohadance48</p>
+
+                </div>
+                <div class="product-card">
+                    <h3>email</h3>
+                    <p>afonckiy.vlad@mail.ru</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer-sticky">
+        <p>&copy; 2025 Зоомагазин</p>
+    </footer>
+</body>
+</html>

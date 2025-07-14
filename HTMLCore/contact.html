@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Контакты</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Контактная информация</h1>
+        <nav>
+            <ul>
+                <li><a href="{% url 'index' %}">Главная</a></li>
+                <li><a href="{% url 'about' %}">О нас</a></li>
+                <li><a href="{% url 'contact' %}">Контакты</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h2>Свяжитесь с нами</h2>
+        <p>Здесь будет информация о том, как с нами связаться.</p>
+    </main>
+    <footer>
+        <p>&copy; 2025 Ваша компания</p>
+    </footer>
+</body>
+</html>
+

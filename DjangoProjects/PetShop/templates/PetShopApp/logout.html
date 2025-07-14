@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Вход в учетную запись</title>
+    <link rel="stylesheet" href="{% static 'css/logout.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1>Вход в учетную запись</h1>
+        <form  method="get">
+            {% csrf_token %}
+            {{ my_form.as_p }}
+        <button type="submit">Войти</button>
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,1272 @@
+{
+	"info": {
+		"_postman_id": "b09dd1e9-db4e-437e-8c8f-1e5ab9b8aee9",
+		"name": "CampSiteApp API",
+		"description": "Коллекция основных эндпоинтов для CampSiteApp",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "44623965"
+	},
+	"item": [
+		{
+			"name": "Авторизация (login)",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"username\": \"root\",\n  \"password\": \"]b\\\\q,W^G$[DTvi]fZ7FAN?6:ipdg?jgMQo@S)3:–\"\n}"
+				},
+				"url": {
+					"raw": "{{site}}/api/v1/admin/login/",
+					"host": [
+						"{{site}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"admin",
+						"login",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Добавить администратора",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "Token {{token}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"username\": \"roota_user1s1111\",\n  \"email\": \"rootas@example.com\",\n  \"password\": \"supersecurepassword\"\n}"
+				},
+				"url": {
+					"raw": "{{site}}/api/v1/admin/",
+					"host": [
+						"{{site}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"admin",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Добавление или убавление свободного места (для админов)",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token {{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Пsреыдfsаыние огsню мhоей жопы\",\n    \"operation\": \"dec\" \n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{site}}/api/v1/admin/dateplaces/",
+					"host": [
+						"{{site}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"admin",
+						"dateplaces",
+						""
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Добавление",
+					"originalRequest": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Token {{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Предание огню моей жопы\",\n    \"operation\": \"dec\"\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{site}}/api/v1/dateplaces/admin/",
+							"protocol": "http",
+							"host": [
+								"{{site}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"dateplaces",
+								"admin",
+								""
+							]
+						}
+					},
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "Authorization",
+							"value": "Token {{token}}",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"name\": \"Предание огню моей жопы\",\n    \"operation\": \"inc\"\n    }"
+				}
+			]
+		},
+		{
+			"name": "Создать смену лагеря",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "Token {{token}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"name\": \"Пsреыдsfsаыние огsню мhоей жопы\",\n  \"full_name\": \"sdfsd\",\n  \"part\": \"1212\",\n  \"date\": \"2025-07-01\",\n  \"places\": \"20\",\n  \"price\": \"200\",\n  \"text\": \"Сто проц не поменял\"\n}"
+				},
+				"url": {
+					"raw": "{{site}}/api/v1/admin/datecamp/",
+					"host": [
+						"{{site}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"admin",
+						"datecamp",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Бронирование путевки",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer {{kctoken}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"date_camp\": 1,\n  \"surname_parent\": \"Иванов\",\n  \"name_parent\": \"Иван\",\n  \"patronymic_parent\": \"Иванович\",\n  \"email_parent\": \"vladoshuesos@gmail.com\",\n  \"number_parent\": \"+79991234567\",\n  \"series_passport_parent\": \"1234567890\",\n  \"issued_passport_parent\": \"Отделением УФМС Москвы\",\n  \"date_of_issue\": \"2015-06-15\",\n  \"registration_address_parent\": \"г. Москва, ул. Пушкина, д. 10, кв. 5\",\n  \"surname_child\": \"Иванова\",\n  \"name_child\": \"Мария\",\n  \"patronymic_child\": \"Ивановна\",\n  \"date_of_birth\": \"2010-04-20\",\n  \"address_child\": \"г. Москва, ул. Пушкина, д. 10, кв. 5\",\n  \"passport_child\": \"4510 №123456\",\n  \"issued_passport\": \"Отделением УФМС Москвы\",\n  \"date_of_issue_child\": \"2018-09-10\",\n  \"series_and_number\": \"0987654321\",\n  \"comment\": \"Пожалуйста, учтите аллергию на орехи\"\n}\n"
+				},
+				"url": {
+					"raw": "{{site}}/api/v1/user/booking/",
+					"host": [
+						"{{site}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"user",
+						"booking",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Добавление комментария",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer {{kctoken}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"text\": \"Отличная смена!\",\n  \"stars\": \"2\"\n}"
+				},
+				"url": {
+					"raw": "{{site}}/api/v1/comment/leave/",
+					"host": [
+						"{{site}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"comment",
+						"leave",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Выход из системы (logout)",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{kctoken}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{site}}/api/v1/logout/",
+					"host": [
+						"{{site}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"logout",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Выход из админа",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token {{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{site}}/api/v1/admin/logout/",
+					"host": [
+						"{{site}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"admin",
+						"logout",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Получение токена админа keycloak",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "username",
+							"value": "{{ADMIN_USERNAME}}",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "{{ADMIN_PASSWORD}}",
+							"type": "text"
+						},
+						{
+							"key": "grant_type",
+							"value": "password",
+							"type": "text"
+						},
+						{
+							"key": "client_id",
+							"value": "admin-cli",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{site}}/auth/realms/master/protocol/openid-connect/token",
+					"host": [
+						"{{site}}"
+					],
+					"path": [
+						"auth",
+						"realms",
+						"master",
+						"protocol",
+						"openid-connect",
+						"token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Регистрация пользователя keycloak",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer {{kctoken}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"username\": \"USERNAME\",\n  \"enabled\": true,\n  \"email\": \"EMAIL@MAIL.RU\",\n  \"firstName\": \"New\",\n  \"lastName\": \"User\",\n  \"credentials\": [\n    {\n      \"type\": \"password\",\n      \"value\": \"PASSWORD\",\n      \"temporary\": false\n    }\n  ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{site}}/auth/admin/realms/{{realm_name}}/users",
+					"host": [
+						"{{site}}"
+					],
+					"path": [
+						"auth",
+						"admin",
+						"realms",
+						"{{realm_name}}",
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Авторизация keycloak",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "client-id",
+							"value": "admin-cli",
+							"type": "text"
+						},
+						{
+							"key": "username",
+							"value": "keycloak",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "JkL#734_000!",
+							"type": "text"
+						},
+						{
+							"key": "grant_type",
+							"value": "password",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{site}}/auth/realms/{{realm_name}}/protocol/openid-connect/token",
+					"host": [
+						"{{site}}"
+					],
+					"path": [
+						"auth",
+						"realms",
+						"{{realm_name}}",
+						"protocol",
+						"openid-connect",
+						"token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Создать datecamp + photo или только photo или только datecamp",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token {{token}}"
+					},
+					{
+						"key": "Content-Type",
+						"value": "multipart/form-data",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "image",
+							"type": "file",
+							"src": "/home/h1st/Изображения/2025-05-17-095310_hyprshot.png"
+						},
+						{
+							"key": "name",
+							"value": "предание оsгню жопы моейssssssasdasdfasdfss",
+							"type": "text"
+						},
+						{
+							"key": "full_name",
+							"value": "sdf",
+							"type": "text"
+						},
+						{
+							"key": "part",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "date",
+							"value": "2025-07-01",
+							"type": "text"
+						},
+						{
+							"key": "places",
+							"value": "20",
+							"type": "text"
+						},
+						{
+							"key": "price",
+							"value": "200",
+							"type": "text"
+						},
+						{
+							"key": "text",
+							"value": "Description",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{site}}/api/v1/admin/datecamp/",
+					"host": [
+						"{{site}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"admin",
+						"datecamp",
+						""
+					],
+					"query": [
+						{
+							"key": "",
+							"value": null,
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Создать только datecamp",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Token {{token}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "multipart/form-data",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "предание оsгню жопы моейsssss",
+									"type": "text"
+								},
+								{
+									"key": "full_name",
+									"value": "sdf",
+									"type": "text"
+								},
+								{
+									"key": "part",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "date",
+									"value": "2025-07-01",
+									"type": "text"
+								},
+								{
+									"key": "places",
+									"value": "20",
+									"type": "text"
+								},
+								{
+									"key": "price",
+									"value": "200",
+									"type": "text"
+								},
+								{
+									"key": "text",
+									"value": "Description",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{site}}/api/v1/admin/datecamp/",
+							"host": [
+								"{{site}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"admin",
+								"datecamp",
+								""
+							],
+							"query": [
+								{
+									"key": "",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"_postman_previewlanguage": "",
+					"header": [],
+					"cookie": [
+						{
+							"expires": "Invalid Date"
+						}
+					],
+					"body": ""
+				},
+				{
+					"name": "Создать photo для datecamp",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Token {{token}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "multipart/form-data",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/home/h1st/Изображения/2025-05-17-095310_hyprshot.png"
+								},
+								{
+									"key": "camp",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{site}}/api/v1/admin/datecamp/",
+							"host": [
+								"{{site}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"admin",
+								"datecamp",
+								""
+							],
+							"query": [
+								{
+									"key": "",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"_postman_previewlanguage": "",
+					"header": [],
+					"cookie": [
+						{
+							"expires": "Invalid Date"
+						}
+					],
+					"body": ""
+				},
+				{
+					"name": "Создать photo + datecamp но у photo другой camp",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Token {{token}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "multipart/form-data",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/home/h1st/Изображения/2025-05-17-095310_hyprshot.png"
+								},
+								{
+									"key": "name",
+									"value": "предание оsгню жопы моейsssssыs",
+									"type": "text"
+								},
+								{
+									"key": "full_name",
+									"value": "sdf",
+									"type": "text"
+								},
+								{
+									"key": "part",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "date",
+									"value": "2025-07-01",
+									"type": "text"
+								},
+								{
+									"key": "places",
+									"value": "20",
+									"type": "text"
+								},
+								{
+									"key": "price",
+									"value": "200",
+									"type": "text"
+								},
+								{
+									"key": "text",
+									"value": "Description",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{site}}/api/v1/admin/datecamp/",
+							"host": [
+								"{{site}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"admin",
+								"datecamp",
+								""
+							],
+							"query": [
+								{
+									"key": "",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "Обновить смену лагеря",
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "Token {{token}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"name\": \"Пsреыдfsаыние огsню мhоей жопы\",\n  \"places\": \"19\"\n}"
+				},
+				"url": {
+					"raw": "{{site}}/api/v1/admin/",
+					"host": [
+						"{{site}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"admin",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Обновление статуса подтверждения брони !СПРАШИВАТЬ С ВЛАДА",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Token {{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"id\": \"1\",\n  \"quantity\": \"1\",\n  \"status\": \"True\"\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{site}}/api/v1/admin/update/status/bookings/",
+					"host": [
+						"{{site}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"admin",
+						"update",
+						"status",
+						"bookings",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Удаление комментария",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Token {{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"comment_id\": 1\n}\n\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{site}}/api/v1/admin/",
+					"host": [
+						"{{site}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"admin",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Удалить смену лагеря",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "Token {{token}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"name\": \"Пsреыдfsаыние огsню мhоей жопы\"\n}"
+				},
+				"url": {
+					"raw": "{{site}}/api/v1/admin/",
+					"host": [
+						"{{site}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"admin",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Удалить администратора",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "Token {{token}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"email\": \"rootas@example.com\"\n}"
+				},
+				"url": {
+					"raw": "{{site}}/api/v1/admin/",
+					"host": [
+						"{{site}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"admin",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Удалить неподтвержденную бронь",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "Token {{token}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"id\": \"3\"\n}"
+				},
+				"url": {
+					"raw": "{{site}}/api/v1/admin/bookings/delete/",
+					"host": [
+						"{{site}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"admin",
+						"bookings",
+						"delete",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Получение всех бронирований",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token {{token}}"
+					}
+				],
+				"url": {
+					"raw": "{{site}}/api/v1/admin/bookings/",
+					"host": [
+						"{{site}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"admin",
+						"bookings",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Получение комментариев",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{kctoken}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{site}}/api/v1/comment/",
+					"host": [
+						"{{site}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"comment",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Получить количество свободных мест на смену",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token {{token}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{site}}/api/v1/dateplaces/?name={{date_camp_name}}",
+					"host": [
+						"{{site}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"dateplaces",
+						""
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "{{date_camp_name}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Получение информации о себе (me)",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token {{token}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{site}}/api/v1/me/",
+					"host": [
+						"{{site}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"me",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Получить все смены и все фото",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{site}}/api/v1/datecamp/",
+					"host": [
+						"{{site}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"datecamp",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Получить все подтверждение бронированний админу",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token {{token}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{site}}/api/v1/admin/bookings/confirms/",
+					"host": [
+						"{{site}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"admin",
+						"bookings",
+						"confirms",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Получение всех почт по броням",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token {{token}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{site}}/api/v1/parent-emails/",
+					"host": [
+						"{{site}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"parent-emails",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Me keycloak",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer{{kctoken}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{site}}/api/me/v1/keycloak/",
+					"host": [
+						"{{site}}"
+					],
+					"path": [
+						"api",
+						"me",
+						"v1",
+						"keycloak",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "token",
+			"value": ""
+		},
+		{
+			"key": "kctoken",
+			"value": "",
+			"type": "default"
+		},
+		{
+			"key": "site",
+			"value": "",
+			"type": "default"
+		},
+		{
+			"key": "realm_name",
+			"value": "",
+			"type": "default"
+		}
+	]
+}

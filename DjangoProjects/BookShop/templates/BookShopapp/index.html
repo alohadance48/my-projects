@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NextCloud Clone</title>
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        .profile-info input {
+            width: 200px; /* Установите желаемую ширину */
+            padding: 5px; /* Добавляем немного отступа для удобства */
+        }
+        .error {
+            color: red; /* Цвет для сообщений об ошибках */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>NextCloud Clone</h1>
+            <nav>
+                <ul>
+                    <li><a href="#" id="filesTab">Файлы</a></li>
+                    <li><a href="#" id="profileTab">Профиль</a></li>
+                </ul>
+            </nav>
+        </header>
+        <div class="sidebar">
+            <h2>Папки</h2>
+            <ul>
+                <li><a href="#"><i class="fas fa-folder"></i> Документы</a></li>
+                <li><a href="#"><i class="fas fa-folder"></i> Изображения</a></li>
+                <li><a href="#"><i class="fas fa-folder"></i> Музыка</a></li>
+            </ul>
+        </div>
+        <main id="mainContent">
+            <div id="filesSection">
+                <h2>Ваши файлы</h2>
+                <form id="uploadForm" method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <input type="file" id="fileInput" name="file">
+                    <button type="submit">Загрузить файл</button>
+                </form>
+                <div class="file-list"></div>
+            </div>
+            <div id="profileSection" style="display: none;">
+                <h2>Профиль пользователя</h2>
+                <form id="profileForm" method="POST">
+                    {% csrf_token %}
+                    <div class="profile-info">
+                        <label for="username">Имя пользователя:</label>
+                        {{ form.username }}  <!-- Используем поле формы -->
+                        {% if form.username.errors %}
+                            <div class="error">{{ form.username.errors }}</div>  <!-- Ошибки для поля имени пользователя -->
+                        {% endif %}
+                    </div>
+                    <div class="profile-info">
+                        <label for="email">Email:</label>
+                        {{ form.email }}  <!-- Используем поле формы -->
+                        {% if form.email.errors %}
+                            <div class="error">{{ form.email.errors }}</div>  <!-- Ошибки для поля email -->
+                        {% endif %}
+                    </div>
+                    <button type="submit">Сохранить</button>
+                </form>
+            </div>
+        </main>
+    </div>
+    <script src="{% static 'js/index.js' %}"></script>
+</body>
+</html>

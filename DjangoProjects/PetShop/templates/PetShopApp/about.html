@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Зоомагазин</title>
+    <link rel="stylesheet" href="{% static 'css/about.css' %}">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="{%url 'index'%}">Главная</a></li>
+                <li><a href="{%url 'about'%}">О нас </a></li>
+                <li><a href="{%url 'contact'%}">Контакты</a></li>
+
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="products">
+            <h2>О мне</h2>
+            <div class="product-grid">
+                <div class="product-card">
+                    <h3>Мои качества</h3>
+                    <p>Миллиардер,play-boy,скромный парень</p>
+                    <h3>{{rand}}</h3></h1>
+                </div>
+                <div class="product-card">
+                    <h3>Мой опыт </h3>
+                    <p>6 месяцев </p>
+                </div>
+                <div class="product-card">
+                    <h3>Что я знаю?</h3>
+                    <p>Python,ООП,маршрутизацию,шаблоны в Django,json в питоне, sql-запросы,psql,psql в питоне,git,os,html,css.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer-sticky">
+        <p>&copy; 2025 Зоомагазин</p>
+    </footer>
+</body>
+</html>
